@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('taskInput');
     const addButton = document.getElementById('addButton');
     const taskList = document.getElementById('taskList');
+    const errorMessage = document.getElementById('errorMessage');
 
     // Função para adicionar uma nova tarefa
     function addTask() {
@@ -9,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Verifica se a tarefa não está vazia
         if (taskText !== '') {
+            errorMessage.style.display = 'none';
+
             // Cria um novo elemento de lista (li)
             const li = document.createElement('li');
             li.textContent = taskText;
@@ -18,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Limpa o campo de texto e volta o foco para ele
             taskInput.value = '';
+            taskInput.focus();
+        } else {
+            // Mostra a mensagem de erro se estiver vazio
+            errorMessage.style.display = 'block';
             taskInput.focus();
         }
     }
