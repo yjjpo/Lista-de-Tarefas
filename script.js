@@ -19,6 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const taskSpan = document.createElement('span');
             taskSpan.textContent = taskText;
             
+            // Cria um contêiner para os botões
+            const btnContainer = document.createElement('div');
+            btnContainer.className = 'btn-container';
+
+            // Cria o botão de concluir
+            const completeBtn = document.createElement('button');
+            completeBtn.textContent = 'Concluir';
+            completeBtn.className = 'complete-btn';
+            
+            // Adiciona a funcionalidade de concluir a tarefa
+            completeBtn.addEventListener('click', () => {
+                taskSpan.classList.toggle('completed-text');
+                li.classList.toggle('completed-li');
+            });
+
             // Cria o botão de excluir
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Excluir';
@@ -29,9 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 li.remove();
             });
 
-            // Adiciona o texto e o botão dentro do li
+            // Adiciona os botões no contêiner
+            btnContainer.appendChild(completeBtn);
+            btnContainer.appendChild(deleteBtn);
+
+            // Adiciona o texto e os botões dentro do li
             li.appendChild(taskSpan);
-            li.appendChild(deleteBtn);
+            li.appendChild(btnContainer);
             
             // Adiciona a tarefa na lista (ul)
             taskList.appendChild(li);
