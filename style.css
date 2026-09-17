@@ -113,6 +113,9 @@ li {
     box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     transition: transform 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 li:hover {
@@ -144,4 +147,25 @@ li:hover {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+.delete-btn {
+    background-color: #ffe6ea;
+    color: #ff768b;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.delete-btn:hover {
+    background-color: #ffced6;
+    color: #ff4766;
+    transform: scale(1.05);
+    box-shadow: none;
 }

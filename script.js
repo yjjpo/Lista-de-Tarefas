@@ -14,7 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cria um novo elemento de lista (li)
             const li = document.createElement('li');
-            li.textContent = taskText;
+            
+            // Cria um elemento span para o texto da tarefa
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+            
+            // Cria o botão de excluir
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Excluir';
+            deleteBtn.className = 'delete-btn';
+            
+            // Adiciona a funcionalidade de excluir a tarefa
+            deleteBtn.addEventListener('click', () => {
+                li.remove();
+            });
+
+            // Adiciona o texto e o botão dentro do li
+            li.appendChild(taskSpan);
+            li.appendChild(deleteBtn);
             
             // Adiciona a tarefa na lista (ul)
             taskList.appendChild(li);
